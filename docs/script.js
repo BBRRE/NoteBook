@@ -31,9 +31,11 @@ takeFromDatabase().then(startUp())
 
 form.addEventListener( 'submit', (e) => {
     e.preventDefault()
-
+    if(i === undefined){
+        i = 0
+    }
     drawNoteBook(name1.value,color.value,i)
-    drawNtebookContainer(i)
+    drawNtebookContainer(`a${i}`)
     addToDatabase(i)
     i = i + 1
     // Console.log(i)
