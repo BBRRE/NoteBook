@@ -34,7 +34,7 @@ app.get('/lol', (req,res) => {
 // 
 
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'docs')))
 
 
 const PORT = process.env.PORT || 5000;
