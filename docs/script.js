@@ -35,8 +35,10 @@ form.addEventListener( 'submit', (e) => {
     if(i === undefined){
         i = 0
     }
+    
     drawNoteBook(name1.value,color.value,i)
-    drawNtebookContainer(`a${i}`)
+    cooler = color.value
+    drawNtebookContainer(`a${i}`,cooler)
     addToDatabase(i)
     i = i + 1
     // Console.log(i)
@@ -76,7 +78,7 @@ async function takeFromDatabase(){
             i = 0
         }
         drawNoteBook(data[j].name,data[j].color,i)
-        drawNtebookContainer(`a${i}`)
+        drawNtebookContainer(`a${i}`,data[j].color,i)
         i = content.childElementCount
         console.log(i)
     }
@@ -115,7 +117,7 @@ function startUp(){
         
     // })
 
-    function drawNtebookContainer(i){
+    function drawNtebookContainer(i,color){
         const infoParent = document.querySelector('.info-parent')
         const info = document.createElement('div')
         const nav = document.createElement('div')
@@ -126,6 +128,7 @@ function startUp(){
         const close = document.createElement('button')
 
         info.classList.add('notebook-info')
+        info.style.backgroundColor = color
         nav.classList.add('navbar')
         form.id = 'file-form'
         input.type = 'file'

@@ -167,3 +167,14 @@ body{
     background-position: center;
     background-size: cover ;
 }
+
+.info-parent  button{
+    border: 0px;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+
+.info-parent input{
+        margin: 5px;
+}
