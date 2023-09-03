@@ -31,7 +31,20 @@ app.get('/lol', (req,res) => {
 })
 
 
-// 
+app.post('/images', fileUpload({createParentPath: true}), (req,res) => {
+    const files = req.files['user-file']
+    console.log(files)
+
+    const filePath = path.join(__dirname,'images',files.name)
+    console.log(filePath)
+    files.mv(filePath, (err) => {
+        if(err) return res.status(500).json({status: 'error', messege: err})
+    })
+    
+    
+    return res.json(req.files['user-file'])
+})
+
 
 
 app.use(express.static(path.join(__dirname, 'docs')))
@@ -40,19 +53,6 @@ app.use(express.static(path.join(__dirname, 'docs')))
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
 
-// app.post('/images', fileUpload({createParentPath: true}), (req,res) => {
-//     const files = req.files['user-file']
-//     console.log(files)
-
-//     const filePath = path.join(__dirname,'images',files.name)
-//     console.log(filePath)
-//     files.mv(filePath, (err) => {
-//         if(err) return res.status(500).json({status: 'error', messege: err})
-//     })
-    
-    
-//     return res.json(req.files['user-file'])
-// })
 
 // app.get('/images', (req,res) => {
 //     data = req

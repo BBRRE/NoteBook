@@ -14,6 +14,7 @@ let croyden = false
 const addNoteBook = document.querySelector('.add-book')
 const adbook = document.createElement('button')
 adbook.classList.add('trbtn')
+adbook.classList.add('ll')
 adbook.innerText = 'Add NoteBook'
 document.body.appendChild(adbook)
 adbook.style.display = 'none'
@@ -172,4 +173,14 @@ infoParent.addEventListener('click', e => {
     if(e.target.classList[0] === 'prev')
     e.target.parentNode.parentNode.style.display = 'none'
     croyden = false
+})
+
+
+
+window.addEventListener('click', (e) => {
+    if(addNoteBook.style.display = 'block'){
+    if(e.target.classList[1] !== 'll'){
+        addNoteBook.style.display = 'none'
+        adbook.style.display = 'block'
+    }}
 })
