@@ -41,6 +41,8 @@ form.addEventListener( 'submit', (e) => {
     drawNtebookContainer(`a${i}`,cooler)
     addToDatabase(i)
     i = i + 1
+
+    form.reset()
     // Console.log(i)
 })
 
